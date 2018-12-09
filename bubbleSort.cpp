@@ -21,11 +21,11 @@ int main(){
 }
 
 void swap(int &a, int &b){
-	if(a != b){
-		a += b;
-		b = a - b;
-		a -= b;
-	}
+  if(a != b){
+  	a += b;
+  	b = a - b;
+  	a -= b;
+  }
 }
 
 void bubbleSort(std::vector<int> &input){
