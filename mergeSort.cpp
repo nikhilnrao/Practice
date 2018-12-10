@@ -10,7 +10,7 @@ int main(){
   std::vector<int> input = {1, 6, 55, 67, 43, 23, 99, 69};
 
   for(auto i: input){
-  	std::cout << i << std::endl;
+    std::cout << i << std::endl;
   }
 
   mergeSort(input);
@@ -18,7 +18,7 @@ int main(){
   std::cout << "After Sorting" << std::endl;
 
   for(auto i: input){
-  	std::cout << i << std::endl;
+    std::cout << i << std::endl;
   }
   return 0;
 
@@ -26,7 +26,7 @@ int main(){
 
 void mergeSort(std::vector<int> &input){
   if(input.size() == 1)
-  	return;
+    return;
 
   auto mid = (input.size()/2);
 
@@ -44,40 +44,40 @@ void mergeSort(std::vector<int> &input){
 }
 
 void merge(std::vector<int> &a, std::vector<int> &b, std::vector<int> &result){
-	auto sizeL = a.size();
-	auto sizeR = b.size();
+  auto sizeL = a.size();
+  auto sizeR = b.size();
 
-	auto lPtr = 0;
-	auto rPtr = 0;
+  auto lPtr = 0;
+  auto rPtr = 0;
     
   assert((sizeL+sizeR) == result.size());
 
-	for(auto i = 0; i < result.size(); i++){
-	  if(lPtr < sizeL && rPtr < sizeR){
-		  if(a[lPtr] > b[rPtr]){
-				result[i] = b[rPtr];
-				rPtr++;
-			}
-			else if(a[lPtr] < b[rPtr]){
-				result[i] = a[lPtr];
-				lPtr++;
-			}
-			else{
-				result[i++] = a[lPtr];
-				result[i] = b[rPtr];
-				lPtr++;
-				rPtr++;
-			}
-		}
-		else{
-			if(lPtr < sizeL){
-				result[i] = a[lPtr];
-				lPtr++;
-			}
-			else if(rPtr < sizeR){
-				result[i] = b[rPtr];
-				rPtr++;
-			}
-		}
-	}
+  for(auto i = 0; i < result.size(); i++){
+    if(lPtr < sizeL && rPtr < sizeR){
+      if(a[lPtr] > b[rPtr]){
+        result[i] = b[rPtr];
+        rPtr++;
+      }
+      else if(a[lPtr] < b[rPtr]){
+        result[i] = a[lPtr];
+        lPtr++;
+      }
+      else{
+        result[i++] = a[lPtr];
+        result[i] = b[rPtr];
+        lPtr++;
+        rPtr++;
+      }
+    }
+    else{
+      if(lPtr < sizeL){
+        result[i] = a[lPtr];
+        lPtr++;
+      }
+      else if(rPtr < sizeR){
+        result[i] = b[rPtr];
+        rPtr++;
+      }
+    }
+  }
 }
