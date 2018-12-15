@@ -1,8 +1,8 @@
 #include <iostream>
 #include <vector>
 
-void quickSort(std::vector<int> &input, std::size_t start, std::size_t end);
-std::size_t partition(std::vector<int> &input, std::size_t start, std::size_t end);
+void quickSort(std::vector<int> &input, int start, int end);
+int partition(std::vector<int> &input, int start, int end);
 
 
 int main(){
@@ -11,9 +11,8 @@ int main(){
   for(auto i: input){
     std::cout << i << std::endl;
   }
-  
-  if(input.size())
-    quickSort(input, 0, input.size()-1);
+ 
+  quickSort(input, 0, input.size()-1);
 
   std::cout << "After Sorting" << std::endl;
 
@@ -24,21 +23,21 @@ int main(){
 }
 
 
-void quickSort(std::vector<int> &input, std::size_t start, std::size_t end){
+void quickSort(std::vector<int> &input, int start, int end){
   if(start<end)
   {
-  	size_t pivot = partition(input, start, end);
+  	int pivot = partition(input, start, end);
 	quickSort(input, start, pivot-1);
 	quickSort(input, pivot+1, end);
   }
 }
 
-std::size_t partition(std::vector<int> &input, std::size_t start, std::size_t end){
+int partition(std::vector<int> &input, int start, int end){
   // Simple Pivot
   int pivot = input[end];
 
-  std::size_t pivotPos = start;
-  for(size_t i=start; i<end; ++i){
+  int pivotPos = start;
+  for(int i=start; i<end; ++i){
     if(input[i] <= pivot)
       std::swap(input[i], input[pivotPos++]);
   }
